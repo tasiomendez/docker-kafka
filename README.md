@@ -19,5 +19,5 @@ Zookeeper listens on the port `2181`, while Kafka is listening on `9092`.
 ## Build from Source
 
 ```bash
-docker build -t tmendez/kafka kafka/
+docker build -t tasiomendez/kafka .
 ```
