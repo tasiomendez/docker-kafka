@@ -30,3 +30,12 @@ an instance of Zookeeper.
 docker run --name zookeeper -p 2181:2181 -d zookeeper:latest
 docker run --name kafka-server -p 9092:9092 --env ZOOKEEPER_HOST="localhost:2181" tasiomendez/kafka
 ```
+
+## Running Kafka scripts
+
+For running Kafka scripts such as `kafka-topics.sh` can be done using the `exec` command
+from Docker.
+
+```bash
+docker exec kafka-server sh -c '$KAFKA_HOME/bin/kafka-topics.sh --create --topic tmendez --replication-factor 1 --partitions 3 --zookeeper $ZOOKEEPER_HOST'
+```
