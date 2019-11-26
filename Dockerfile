@@ -16,8 +16,8 @@ RUN apt-get update && \
     tar xfz /tmp/kafka_"$SCALA_VERSION"-"$KAFKA_VERSION".tgz -C /opt && \
     rm /tmp/kafka_"$SCALA_VERSION"-"$KAFKA_VERSION".tgz
 
-ADD scripts/start-kafka.sh /usr/bin/start-kafka.sh
+ADD scripts/start-kafka.sh /usr/local/bin/start-kafka.sh
 
-EXPOSE  9092
+EXPOSE 9092
 
-CMD /usr/bin/start-kafka.sh
+CMD /usr/local/bin/start-kafka.sh
