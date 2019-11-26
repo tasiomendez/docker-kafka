@@ -7,6 +7,7 @@ services:
     container_name: kafka-server
     environment:
       - ZOOKEEPER_HOST=zookeeper:2181
+      - ADVERTISED_HOST=192.168.99.100:9092
     ports:
       - 9092:9092
     networks:
