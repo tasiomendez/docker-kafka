@@ -37,6 +37,9 @@ if [ ! -z "$ZOOKEEPER_HOST" ]; then
     echo "zookeeper.connect=$ZOOKEEPER_HOST"
     # configure zookeeper
     sed -r -i "s/(zookeeper.connect)=(.*)/\1=$ZOOKEEPER_HOST/g" $KAFKA_HOME/config/server.properties
+else
+    export ZOOKEEPER_HOST='localhost:2181'
+    echo "zookeeper.connect=$ZOOKEEPER_HOST"
 fi
 
 # Allow specification of log retention policies
