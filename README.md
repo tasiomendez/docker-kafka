@@ -14,10 +14,19 @@ can be obtained in the [official webpage](https://kafka.apache.org/downloads).
 Zookeeper listens on the port `2181`, while Kafka is listening on `9092`.
 
 ```bash
+docker-compose up
 ```
 
 ## Build from Source
 
 ```bash
 docker build -t tasiomendez/kafka .
+```
+
+Once the Docker image is created, before running it, is needed to run
+an instance of Zookeeper.
+
+```bash
+docker run --name zookeeper -p 2181:2181 -d zookeeper:latest
+docker run --name kafka-server -p 9092:9092 --env ZOOKEEPER_HOST="localhost:2181" tasiomendez/kafka
 ```
