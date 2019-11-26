@@ -1,0 +1,30 @@
+version: '2'
+services:
+
+  kafka:
+    build: .
+    image: kafka:latest
+    container_name: kafka-server
+    environment:
+      - ZOOKEEPER_HOST=zookeeper:2181
+    ports:
+      - 9092:9092
+    networks:
+      - connection
+    depends_on:
+      - zookeeper
+
+  zookeeper:
+    image: zookeeper:latest
+    container_name: zookeeper
+    restart: always
+    ports:
+      - 2181:2181
+      - 2888:2888
+      - 8080:8080
+    networks:
+      - connection
+
+networks:
+  connection:
+    driver: bridge
